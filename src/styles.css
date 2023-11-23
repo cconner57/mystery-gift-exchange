@@ -52,8 +52,7 @@ a {
 }
 abbr[title] {
   border-bottom: none;
-  ext-decoration: underline;
-  text-decoration: underline dotted;
+  text-decoration: underline;
 }
 b,
 strong {
