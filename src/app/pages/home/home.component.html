@@ -18,7 +18,7 @@
       [disabled]="
         partyDetails.budget === 0 ||
         partyDetails.date === '' ||
-        partyDetails.participants.length === 0
+        partyDetails.participants.length > 1
       "
       (click)="generateLinks()"
     >
