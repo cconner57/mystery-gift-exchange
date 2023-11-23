@@ -1,4 +1,15 @@
-<p>{{ text1 }}: {{ text2 }}</p>
-@if (isAdmin) {
-<button>+</button><button>-</button>
-}
+<div class="container">
+  @if (text1.toLowerCase() === "budget") {
+  <p>Set {{ text1 }}:</p>
+  <button (click)="decrementBudget(5)">-5</button>
+  <button (click)="decrementBudget(1)">-1</button>
+  <p>${{ partyDetails.budget }}</p>
+  <button (click)="incrementBudget(1)">+1</button>
+  <button (click)="incrementBudget(5)">+5</button>
+  } @if (text1.toLowerCase() === "date") {
+  <span
+    >Set {{ text1 }}:
+    <input type="date" id="date" [formControl]="date" (change)="changeDate()"
+  /></span>
+  }
+</div>

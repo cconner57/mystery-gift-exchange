@@ -1,1 +1,10 @@
-<input type="text" name="name" />
+<div class="container">
+  <input
+    type="text"
+    id="name"
+    [formControl]="name"
+    placeholder="Add new participant"
+    (keyup.enter)="addNewUser()"
+  />
+  <button (click)="addNewUser()">✔</button>
+</div>

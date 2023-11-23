@@ -1,2 +1,30 @@
-<p>Participants</p>
-<p>{{ userList?.length }} {{ userList?.length === 1 ? "person" : "people" }}</p>
+<div class="container">
+  @if (!linksCreated) {
+  <div class="guestCount">
+    <h2>Participants</h2>
+    <p>
+      {{ userList?.length }} {{ userList?.length === 1 ? "person" : "people" }}
+    </p>
+  </div>
+  }
+  <div class="guestList">
+    @for (user of userList; track user.id) {
+    <div class="user">
+      <p>{{ user.name }}</p>
+      @if(!linksCreated) {
+      <p
+        [ngStyle]="{
+          filter: user.giftParticipant ? 'grayscale(0%)' : 'grayscale(100%)'
+        }"
+      >
+        🎁
+      </p>
+      } @else {
+      <p class="link" (click)="copyLink(user.link ?? '', user.id)">
+        {{ copied && copied.userId === user.id ? "Copied!" : "Link 🔗" }}
+      </p>
+      }
+    </div>
+    }
+  </div>
+</div>

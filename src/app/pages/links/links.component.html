@@ -1,0 +1,44 @@
+<body>
+  <main>
+    <p class="title">🎅 You're Invited to Our Secret Santa Extravaganza!</p>
+    <p>🎁 Dear {{ partyDetails.name }},</p>
+    <p class="intro">
+      The holiday season is upon us, and what better way to spread cheer and
+      create lasting memories than by participating in our Secret Santa gift
+      exchange! We're thrilled to invite you to join in the festive fun.
+    </p>
+    <div class="event">
+      <p>🌟 Event Details 🌟</p>
+      <p>Budget: <span>${{ partyDetails.budget }}</span></p>
+      <p>Date: <span>{{ partyDetails.date }}</span></p>
+      <p>Recipient: <span>{{ partyDetails.giftTo }}</span></p>
+    </div>
+    <div class="instructions">
+      <p>🎄 How It Works 🎄</p>
+      <ul>
+        <li>Your receipient has been drawn from the Secret Santa hat.</li>
+        <li>Keep your assigned person a secret – it's part of the fun!</li>
+        <li>
+          Find the perfect gift that will bring a smile to your Secret Santa's
+          face. (Remember, the budget is ${{ partyDetails.budget }}.)
+        </li>
+        <li>Bring your carefully wrapped gift to the event.</li>
+      </ul>
+    </div>
+    <div class="secret">
+      <p>🤐 Shhh... It's a Secret! 🤐</p>
+      <p>
+        The magic of Secret Santa lies in the surprise! Please keep your
+        identity hidden until the grand reveal at the event.
+      </p>
+    </div>
+    <p>
+      We can't wait to see you at this merry gathering and exchange heartfelt
+      gifts with one another. Let the joyous festivities begin!
+    </p>
+    <p>
+      Wishing you a season filled with warmth, laughter, and wonderful
+      surprises!
+    </p>
+  </main>
+</body>

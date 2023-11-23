@@ -1,7 +1,62 @@
 <body>
   <app-header />
-  <app-sub-header-item text1="Budget" text2="$20" [counter]="true" />
-  <app-sub-header-item text1="Date" text2="12/12/2023" />
-  <app-text-input />
-  <app-participants [userList]="users" />
+  @if (!linksCreated) {
+  <main>
+    <app-sub-header-item
+      text1="Budget"
+      (addBudget)="updateBuget($event)"
+      [partyDetails]="partyDetails"
+    />
+    <app-sub-header-item
+      text1="Date"
+      (addDate)="updateDate($event)"
+      [partyDetails]="partyDetails"
+    />
+    <app-text-input (addUser)="addNewUser($event)" />
+    <app-participants [userList]="partyDetails.participants" />
+    <button
+      [disabled]="
+        partyDetails.budget === 0 ||
+        partyDetails.date === '' ||
+        partyDetails.participants.length === 0
+      "
+      (click)="generateLinks()"
+    >
+      @if(loading) {
+      <img src="../../../assets/images/spinner.svg" alt="spinner" /> } @else {
+      Generate Links }
+    </button>
+  </main>
+  } @else {
+  <div class="links-ready">
+    <p>
+      Get ready for a festive and fun-filled Secret Santa experience! 🎄🎅🎁
+    </p>
+    <p>
+      We hope this message finds you in high spirits as we gear up for our
+      upcoming Secret Santa celebration! To ensure a seamless and personalized
+      experience for each participant, we want to highlight a key aspect of the
+      event logistics.
+    </p>
+    <p>
+      <span>Unique Secret Santa Links:</span> We've designed a unique and
+      personalized experience for each participant by creating individualized
+      Secret Santa links. These links are like magic keys that unlock the
+      mystery of who each person will be buying a gift for. It's crucial that
+      each participant receives their own special link to maintain the surprise
+      and excitement of the event. Click on the "Link" text and the unique link
+      will be copied for you.
+    </p>
+    <p>
+      <span>Action Required:</span> As the event creator, we kindly request your
+      assistance in distributing these unique links to each participant. You can
+      do this by sending the respective link to each individual along with any
+      additional event details or instructions.
+    </p>
+    <app-participants
+      [userList]="partyDetails.participants"
+      [linksCreated]="linksCreated"
+    />
+  </div>
+  }
 </body>
